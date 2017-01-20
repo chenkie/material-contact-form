@@ -1,29 +1,78 @@
-<h2>Phone</h2>
-<p>Get in touch by phone!</p>
-<p><strong>1-800-555-5555</strong></p>
-<p><small>Open Monday to Friday, 9am - 5pm</small></p>
+<md-card>
 
-<h2>Email</h2>
-<p>Send us a message!</p>
-<form #contactForm="ngForm" (ngSubmit)="onContactFormSubmit(contactForm.value)">
-  <div>
-    <label for="subject">Subject</label>
-    <select name="subject" id="subject-select" ngModel>
-      <option value="help needed">Help Needed</option>
-      <option value="general question">General Question</option>
-      <option value="complaint">Complaint</option>
-    </select>
-  </div>
-  <div>
-    <label for="email">Email Address</label>
-    <input name="email" type="email" ngModel>
-  </div>
-  <div>
-    <label for="message">Message</label>
-    <textarea name="message" ngModel cols="30" rows="10" placeholder="Write your message"></textarea>
-  </div>
-  <label><input type="checkbox" name="optIn" ngModel> Sign me up for the mailing list!</label>
-  <button type="submit">Submit</button>
-</form>
-<button (click)="onContactFormClear()">Clear</button>
+  <h1>Get in Touch!</h1>
+  <md-tab-group>
+    <md-tab label="Phone">
+      <div class="text-center">
+        <h3>Give us a call!</h3>
+        <p class="phone">
+          <md-icon>phone</md-icon>
+          <strong> 1-800-555-5555</strong>
+        </p>
+        <p>
+          <small>Open Monday to Friday, 9am - 5pm</small>
+        </p>
+      </div>
+    </md-tab>
+  <md-tab-group>
+
+  </md-tab-group>
+    <md-tab label="Email" class="email-tab">
+
+      <div class="text-center">
+        <h3>Send us a message!</h3>
+      </div>
+
+      <form #contactForm="ngForm" (ngSubmit)="onContactFormSubmit(contactForm.value)">
+
+        <md-select name="subject" id="subject-select" placeholder="Subject" ngModel>
+          <md-option *ngFor="let reason of contactReasons" [value]="reason.value">
+            {{ reason.viewValue }}
+          </md-option>
+        </md-select>
+
+        <md-input-container>
+          <input md-input placeholder="Email" name="email" type="email" ngModel>
+        </md-input-container>
+
+        <md-input-container>
+          <textarea
+            md-input
+            name="message"
+            placeholder="Write your message"
+            ngModel>
+          </textarea>
+        </md-input-container>
+
+        <div class="submit-area">
+          <md-checkbox name="optIn" ngModel>
+              Sign me up for the mailing list!
+          </md-checkbox>
+          <div class="submit-button-area">
+
+            <button
+              md-raised-button
+              type="submit"
+              name="submit"
+              [disabled]="!contactForm.value.message">
+                Submit
+            </button>
+
+            <button
+              md-raised-button
+              type="button"
+              (click)="onContactFormClear()">
+                Clear
+            </button>
+
+          </div>
+        </div>
+
+        <md-progress-bar mode="indeterminate" *ngIf="contactForm.submitting"></md-progress-bar>
+
+      </form>      
+    </md-tab>
+  </md-tab-group>
+
+</md-card>
 

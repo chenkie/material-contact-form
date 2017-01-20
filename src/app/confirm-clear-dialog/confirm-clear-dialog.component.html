@@ -1,0 +1,6 @@
+<h1 mg-dialog-title>Hold Up!</h1>
+<div md-dialog-content>Are you sure you want to clear the form?</div>
+<div md-dialog-actions>
+  <button md-button (click)="confirmClearDialog.close({ shouldClear: true })">Yes, clear it.</button>
+  <button md-button (click)="confirmClearDialog.close({ shouldClear: false })">Oops, cancel!</button>
+</div>

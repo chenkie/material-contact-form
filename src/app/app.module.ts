@@ -6,11 +6,13 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ConfirmClearDialogComponent } from './confirm-clear-dialog/confirm-clear-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ConfirmClearDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     MaterialModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmClearDialogComponent]
 })
 export class AppModule { }

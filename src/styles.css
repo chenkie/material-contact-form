@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: -webkit-linear-gradient(-45deg, rgba(159,124,193,1) 0%, rgba(142,203,234,1) 100%);
+}

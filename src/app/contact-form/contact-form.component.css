@@ -1,0 +1,42 @@
+md-card {
+  width: 50%;
+}
+
+.text-center > * {
+  text-align: center;
+}
+
+.phone {
+  font-size: 40px;
+}
+
+md-icon {
+  color: #777;
+}
+
+.email-tab > input {
+  width: 100%;
+}
+
+md-select, md-input-container {
+  width: 100%;
+  margin: 10px 0;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.submit-area {
+  padding: 15px;
+}
+
+.submit-button-area {
+  margin: 10px 0;
+}
+
+@media (max-width: 698px) {
+  md-card {
+    width: 100%;
+  }
+}
